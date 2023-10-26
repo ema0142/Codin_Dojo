@@ -1,0 +1,43 @@
+*{
+    background-color: rgb(217, 239, 247);
+}
+
+.row1 {
+    margin: 100px;
+    width: 1300px;
+    height: 200px;
+    background-color:#DBB89C;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.row2{
+    margin: 100px;
+    width: 1300px;
+    height: 200px;
+    background-color:#F2DBD5;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+    
+
+.img {
+    height: 200px;
+    padding: 2px;
+    margin: 10%;
+}
+    
+.row3{
+    margin: 100px;
+    width: 1300px;
+    height: 200px;
+    background-color:#E9D3C0;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+
+}
