@@ -1,15 +1,12 @@
 .title {
     background-color: black;
     color: rgb(76, 154, 178);
-    padding: 5px 5px 10px 15px;
-    border-color: yellow;
-    border-style: ridge;
-    margin-bottom: 15px;
+
+    
 }
 .my {
     color: white;
 }
 .sub {
     background-color: brown;
-    margin-top: 0px;
 }
