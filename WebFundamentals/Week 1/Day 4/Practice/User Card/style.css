@@ -1,0 +1,50 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: bisque;
+    background-color: grey;
+    height: 100;
+    width: 200; 
+    
+}
+.nav img{
+    position: relative;
+    top:20px;
+    left: 30px;
+}
+.nav2{
+    display: flex;
+}
+.liste{
+    list-style-type: none;
+}
+
+
+.pic2{
+    width: 20;
+    height: 20px;
+    display:inline-block;
+    
+}
+.pic1 {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    
+}
+
+
+.liste1{
+    text-decoration: none;
+}
+.liste1{
+    text-decoration: none;
+    justify-content: center;
+}
+
+
+
+
+
+
