@@ -1,6 +1,6 @@
 .title {
     background-color: black;
-    color: rgb(76, 154, 178);
+    color: rgb(161, 218, 235);
 
     
 }
@@ -8,5 +8,11 @@
     color: white;
 }
 .sub {
-    background-color: brown;
+    background-color: rgb(234, 183, 183);
+    text-align: center;
+}
+.contact{
+    background-color: azure;
+    text-align: end;
+    text-decoration: underline;
 }
