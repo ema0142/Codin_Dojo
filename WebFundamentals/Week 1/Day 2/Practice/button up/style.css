@@ -1,0 +1,23 @@
+.Search{
+    display: flex;
+    flex-direction: column;
+
+}
+.z{
+    background-color: rgb(58, 58, 184);
+    color: white;
+    border: 2px solid black ;
+    box-shadow: 5px solid black;
+    width: 200px;
+    height: 25px;
+}
+.y{
+    background-color: rgb(118, 181, 118);
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+}
+.x{
+    border-radius: (50% solid rgb(109, 177, 87)) ;
+    width: 200px;
+}
