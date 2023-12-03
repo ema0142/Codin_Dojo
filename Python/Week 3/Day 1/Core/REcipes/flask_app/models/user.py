@@ -1,10 +1,12 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app import DATABASE
-from flask import flash
-import re	# the regex module
-# create a regular expression object that we'll use later   
+import re  #the regex module
+#create a regular expression cobject that we'll use late
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-class User :
+from flask import flash
+
+
+class User:
+    db_name = "recipes_schemaa"
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -13,37 +15,44 @@ class User :
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-    
-    # Queries
+       
+
     @classmethod
-    def create_user(cls, data):
-        query = """
-        INSERT INTO users (first_name, last_name, email, password) 
-        VALUES (%(first_name)s,%(last_name)s,%(email)s,%(password)s);
-        """
-        return connectToMySQL(DATABASE).query_db(query, data)
-    def __repr__(self) -> str:
-        return f"{self.first_name}--{self.last_name}--{self.email}"
+    def save(cls,data):
+        query = "INSERT INTO users (first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s)"
+        return connectToMySQL(cls.db_name).query_db(query,data)
+
     @classmethod
-    def get_by_id(cls, data):
-        query = """
-        SELECT * FROM users WHERE id = %(id)s;
-        """
-        result = connectToMySQL(DATABASE).query_db(query,data)
+    def get_all(cls):
+        query = "SELECT * FROM users;"
+        results = connectToMySQL(cls.db_name).query_db(query)
+        users = []
+        for row in results:
+            users.append( cls(row))
+
+
+    @classmethod
+    def get_by_email(cls, data): #!READ
+        query="SELECT * FROM users WHERE email=%(email)s;"
+        result= connectToMySQL(cls.db_name).query_db(query,data)
+
+        if len(result) <1:
+            return False
         return cls(result[0])
+
     @classmethod
-    def get_by_email(cls,data):
-        query = """
-        SELECT * FROM users WHERE email = %(email)s;
-        """
-        result = connectToMySQL(DATABASE).query_db(query,data)
-        if(result):
-            return cls(result[0])
-        return False
-    
-    # * VALIDATIONS 
+    def get_by_id(cls, data): #!READ
+        query="SELECT * FROM users WHERE id=%(id)s;"
+        result= connectToMySQL(cls.db_name).query_db(query,data)
+
+        if len(result) <1:
+            return False
+        return cls(result[0])
+
+
+# * VALIDATIONS 
     @staticmethod
-    def validate_register(data):
+    def validate(data):
         is_valid = True
         if len(data['first_name'])< 2:
             flash("First Name must be at least 3 ")
@@ -60,10 +69,10 @@ class User :
         if len(data['password'])< 6:
             flash("Password too short")
             is_valid = False
-        elif data['password'] != data['confirm_password']:
+        elif data['password'] != data['confirm']:
             flash("Password must match ")
             is_valid = False
         return is_valid
 
 
- 
+
