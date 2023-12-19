@@ -19,11 +19,28 @@ class Ninja {
     }
     drinkshake(){
         this.health+=10
+        console.log(`${this.health}`)
     }
 }
 
-const ninja1 = new Ninja("Hyabusa");
-ninja1.sayName();
-ninja1.showStats();
+class Sensei extends Ninja{
+    constructor(name,health=200,speed=10,strength=10,wisdom=10){
+        super(name,health,speed,strength)
+        this.name=name
+        this.health=health
+        this.speed=speed
+        this.strength=strength
+        this.wisdom=wisdom
+    }
+    speakWisdom(){
+        super.drinkshake()
+        console.log(`What one programmer can do in one month, two programmers can do in two months`)
+    }
+    showStats(){
+        super.showStats()
+    }
+}
 
-
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+superSensei.showStats();
