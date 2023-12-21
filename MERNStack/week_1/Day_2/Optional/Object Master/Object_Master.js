@@ -19,19 +19,21 @@ const pokémon = Object.freeze([
         { "id": 122, "name": "Mr. Mime",   "types": ["psychic"] },
         { "id": 133, "name": "Eevee",      "types": ["normal"] },
         { "id": 144, "name": "Articuno",   "types": ["ice", "flying"] },
-        { "id": 145, "name": "Zapdos",     "types": ["electric", "flying"] },
-        { "id": 146, "name": "Moltres",    "types": ["fire", "flying"] },
+        { "id": 145, "name": "Zapdos",     "types": ["electric", "flying"] },
+        { "id": 146, "name": "Moltres",    "types": ["fire", "flying"] },
         { "id": 148, "name": "Dragonair",  "types": ["dragon"] }
     ]);
-    
+//divisible par 3  
 const pokemonDivByThree = poke
 .filter(poke => poke.id % 3 === 0);
 console.log(pokemonDivByThree);
 
+//type fire
 const fireTypePokemon = poke
 .filter(poke => poke.types.includes("fire"));
 console.log(fireTypePokemon);
 
+//plus d'un  
 const pokemonWithMultipleTypes = poke
 .filter(poke => poke.types.length > 1);
 console.log(pokemonWithMultipleTypes);
@@ -48,21 +50,15 @@ console.log(pokemonNames99);
 
 
 const pisonType = pokémon
-  .filter(poke => poke.types.length > 1 && poke.types[1] === "poison")
-  .map(p => `${p.name}'s first type is ${p.types[0]}`);
+  .filter(poke => poke.types.length === 1 && poke.types[0] === "poison")
+  .map(poke =>poke.name)
+  console.log(pisonType)
 
-console.log(pisonType);
 
 
-const newPoke = pokémon
-  .filter((poke) => {
-    return poke.types[1] === "flying";
-  })
-  .map((p) => {
-    return `${p.name}'s first type is ${p.types[0]}`;
-  });
 
-console.log(newPoke);
+  const newType = pokémon.filter(( p => p.types[1]=== 'flying' ) ).map(p => p.types[0])
+  console.log(newType)
 
 
 
