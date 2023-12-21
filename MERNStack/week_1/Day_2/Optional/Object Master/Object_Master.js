@@ -60,6 +60,8 @@ const pisonType = pokémon
   const newType = pokémon.filter(( p => p.types[1]=== 'flying' ) ).map(p => p.types[0])
   console.log(newType)
 
+  const normaleCount =pokémon.filtre(p=>p.types.includes("normal")).length
+
 
 
 
