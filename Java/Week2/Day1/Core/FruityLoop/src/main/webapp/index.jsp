@@ -11,13 +11,25 @@
 </head>
 
 <body>
-    <h1>Fruit Store</h1>
-    <ul>
-        <c:forEach items="${fruits}" var="fruit">
-            <li>${fruit.name} - $${fruit.price}</li>
-             <li>${fruit.price} - $${fruit.price}</li>
-        </c:forEach>
-    </ul>
+   <div class="container">
+        <h1 class="text-primary">Fruit Store</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="fruit" items="${fruits}">
+                    <tr>
+                        <td><c:out value="${fruit.name}" /></td>
+                        <td><c:out value="${fruit.price}" /></td>
+                    </tr>
+            </tbody>
+            </c:forEach>
+        </table>
+    </div>
 </body>
 
 </html>

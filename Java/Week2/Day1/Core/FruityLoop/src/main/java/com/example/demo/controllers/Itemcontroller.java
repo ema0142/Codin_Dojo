@@ -1,11 +1,12 @@
 package com.example.demo.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.example.demo.Item;
 
-import java.util.ArrayList;
+import com.example.demo.Item;
 
 @Controller
 public class Itemcontroller {
@@ -21,6 +22,6 @@ public class Itemcontroller {
 
         model.addAttribute("fruits", fruits);
 
-        return "index";
+        return "index.jsp";
     }
 }
